@@ -3,11 +3,6 @@
 All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
-### Changed
-
-- Move site to digitaltap.antoniosmith.xyz; rename package and Pages project to digital-tap, reword product-style TfL claims to proposal language, update security.txt canonical/contact
-
-
 ### Bug Fixes
 
 - **security**: Remediate audit findings at the backend trust boundary
@@ -158,6 +153,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Chores
 
+- Move site to digitaltap.antoniosmith.xyz, rename to digital-tap
 - Adopt cloudflare/security-audit skill
 - **deps**: Regenerate lockfile after rebase
 - Set NEXT_PUBLIC_CONVEX_URL as a Pages env var
@@ -178,6 +174,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
+- Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
