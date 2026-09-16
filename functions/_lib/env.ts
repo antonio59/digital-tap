@@ -5,6 +5,7 @@ export interface Env {
   NEXT_PUBLIC_CONVEX_URL?: string
   RESEND_API_KEY?: string
   CONTACT_TO_EMAIL?: string
+  CONTACT_FROM_EMAIL?: string
 }
 
 export interface FunctionContext {

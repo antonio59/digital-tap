@@ -78,7 +78,7 @@ export async function onRequestPost({ request, env }: FunctionContext): Promise<
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "Digital Tap <contact@antoniosmith.xyz>",
+        from: env.CONTACT_FROM_EMAIL ?? "Digital Tap <contact@antoniosmith.xyz>",
         to: [env.CONTACT_TO_EMAIL],
         subject: emailSubject,
         reply_to: email,
