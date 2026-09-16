@@ -187,6 +187,7 @@ ci: bump actions/checkout from 4 to 6
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
+- Update changelog [skip ci]
 - Update changelog
 - Update changelog [skip ci]
 - Update changelog [skip ci]
@@ -282,6 +283,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Styling
 
+- Reduce em-dashes, enforce British English
 - Update hero colours to DLR-inspired cyan/teal branding
 
 
