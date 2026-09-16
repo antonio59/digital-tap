@@ -183,6 +183,7 @@ ci: bump actions/checkout from 4 to 6
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
+- Update changelog [skip ci]
 - Update changelog
 - Update changelog [skip ci]
 - Update changelog [skip ci]
@@ -242,6 +243,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Features
 
+- Real OG/twitter share images and contactless favicon
 - Configurable contact-form sender via CONTACT_FROM_EMAIL
 - Weekly FOI stats cron + updated privacy/terms for GDPR
 - Replace Twitter feed with real passenger complaints, drop Umami
