@@ -38,14 +38,6 @@ export const metadata: Metadata = {
       "A concept campaign asking TfL to consider beacon-based tap-in and tap-out on the DLR. Demo only.",
     url: "https://digitaltap.antoniosmith.xyz",
     siteName: "Digital Tap",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Digital Tap campaign concept for DLR travel",
-      },
-    ],
     locale: "en_GB",
     type: "website",
   },
@@ -54,7 +46,6 @@ export const metadata: Metadata = {
     title: "Digital Tap — a citizen proposal for touchless DLR travel",
     description:
       "A concept campaign asking TfL to consider beacon-based tap-in and tap-out on the DLR.",
-    images: ["/twitter-image.png"],
   },
   robots: {
     index: true,
