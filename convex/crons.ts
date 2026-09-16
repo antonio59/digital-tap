@@ -9,4 +9,10 @@ crons.interval(
   internal.lifecycle.cleanupPendingUploads,
 )
 
+crons.interval(
+  "refresh TfL FOI statistics",
+  { hours: 168 },
+  internal.foi.refresh,
+)
+
 export default crons

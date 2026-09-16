@@ -51,4 +51,19 @@ export default defineSchema({
     storageId: v.optional(v.id("_storage")),
   })
     .index("by_token", ["tokenId"]),
+
+  // Latest figures pulled from TfL's FOI disclosure page by the weekly cron.
+  // One row per dataset key; the site renders these with a hardcoded fallback.
+  foiStats: defineTable({
+    key: v.string(),
+    year: v.number(),
+    incompleteJourneys: v.string(),
+    autoCompleted: v.string(),
+    chargedMaxFare: v.string(),
+    totalRevenue: v.string(),
+    claimWindowWeeks: v.number(),
+    sourceUrl: v.string(),
+    fetchedAt: v.number(),
+  })
+    .index("by_key", ["key"]),
 })

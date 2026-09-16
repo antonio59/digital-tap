@@ -11,6 +11,7 @@
 import type * as analytics from "../analytics.js";
 import type * as comments from "../comments.js";
 import type * as crons from "../crons.js";
+import type * as foi from "../foi.js";
 import type * as lifecycle from "../lifecycle.js";
 import type * as rateLimit from "../rateLimit.js";
 import type * as tokens from "../tokens.js";
@@ -26,6 +27,7 @@ declare const fullApi: ApiFromModules<{
   analytics: typeof analytics;
   comments: typeof comments;
   crons: typeof crons;
+  foi: typeof foi;
   lifecycle: typeof lifecycle;
   rateLimit: typeof rateLimit;
   tokens: typeof tokens;

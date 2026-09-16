@@ -17,7 +17,7 @@ export default function Terms() {
           </div>
 
           <p className="text-lg text-gray-600 mb-8">
-            <strong>Last Updated:</strong> November 5, 2025
+            <strong>Last Updated:</strong> September 16, 2026
           </p>
 
           <h2 className="text-2xl font-bold mt-8 mb-4">1. Acceptance of Terms</h2>
@@ -94,9 +94,9 @@ export default function Terms() {
             The Service integrates with third-party platforms including:
           </p>
           <ul className="list-disc pl-6 mb-4">
-            <li>Supabase (database and storage)</li>
+            <li>Cloudflare Pages (hosting and serverless functions)</li>
+            <li>Convex (database and file storage)</li>
             <li>Resend (email delivery)</li>
-            <li>Netlify (hosting)</li>
           </ul>
           <p>
             These services have their own terms and privacy policies. We are not responsible for their actions or policies.
