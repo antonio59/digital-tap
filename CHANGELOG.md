@@ -182,6 +182,7 @@ ci: bump actions/checkout from 4 to 6
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
+- Update changelog [skip ci]
 - Update changelog
 - Update changelog [skip ci]
 - Update changelog [skip ci]
@@ -241,6 +242,8 @@ ci: bump actions/checkout from 4 to 6
 
 ### Features
 
+- Configurable contact-form sender via CONTACT_FROM_EMAIL
+- Weekly FOI stats cron + updated privacy/terms for GDPR
 - Replace Twitter feed with real passenger complaints, drop Umami
 - **security**: Add security.txt and drop n8n Bearer access
 - Migrate hosting to Cloudflare Workers via OpenNext
