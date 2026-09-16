@@ -1,46 +1,54 @@
-"use client"
-
-import { useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { COMPLAINT_POSTS } from "@/lib/complaints"
+import { ExternalLink, MessageSquare } from "lucide-react"
 
+// Real complaints about tap-in/tap-out ticketing, surfaced from public forums
+// and press coverage. Replaces the old Twitter timeline: the point of this
+// block is showing that the problem is real, in passengers' own words.
 export default function SocialFeed() {
-  useEffect(() => {
-    // Load Twitter widget script
-    const script = document.createElement("script")
-    script.src = "https://platform.twitter.com/widgets.js"
-    script.async = true
-    document.body.appendChild(script)
-
-    return () => {
-      document.body.removeChild(script)
-    }
-  }, [])
-
   return (
     <Card className="h-full">
       <CardHeader>
         <CardTitle className="flex items-center">
-          <svg
-            className="h-5 w-5 mr-2 text-blue-400"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path d="M8.29 20.251c7.547 0 11.75-6.258 11.75-11.75 0-.177 0-.35-.012-.523A8.405 8.405 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-          </svg>
-          Latest Updates
+          <MessageSquare className="h-5 w-5 mr-2 text-blue-500" />
+          The problem, in passengers&apos; own words
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="min-h-[400px]">
-          <a
-            className="twitter-timeline"
-            data-height="400"
-            href="https://twitter.com/dlrdigitaltap?ref_src=twsrc%5Etfw"
-          >
-            Tweets by dlrdigitaltap
-          </a>
-        </div>
+        <a
+          href="https://untap.money/journal/the-forgotten-tap"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block rounded-lg bg-blue-50 p-4 mb-5 hover:bg-blue-100 transition-colors"
+        >
+          <p className="text-2xl font-extrabold text-blue-700">£164.7 million</p>
+          <p className="text-sm text-blue-900 mt-1">
+            charged by TfL in maximum fares for missed tap-outs in 2023 alone — 22.2 million
+            journeys, most refundable only if you claim within 8 weeks.
+            <span className="ml-1 inline-flex items-center text-blue-600">
+              Source <ExternalLink className="h-3 w-3 ml-1" />
+            </span>
+          </p>
+        </a>
+
+        <ul className="space-y-4 max-h-[420px] overflow-y-auto pr-1">
+          {COMPLAINT_POSTS.map((post) => (
+            <li key={post.url}>
+              <a
+                href={post.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-lg border border-gray-100 p-4 hover:border-blue-200 hover:bg-gray-50 transition-colors"
+              >
+                <p className="text-sm text-gray-700 italic">&ldquo;{post.quote}&rdquo;</p>
+                <p className="mt-2 text-xs text-gray-500">{post.context}</p>
+                <p className="mt-1 inline-flex items-center text-xs font-medium text-blue-600">
+                  {post.source} <ExternalLink className="h-3 w-3 ml-1" />
+                </p>
+              </a>
+            </li>
+          ))}
+        </ul>
       </CardContent>
     </Card>
   )

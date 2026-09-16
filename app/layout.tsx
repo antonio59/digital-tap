@@ -1,7 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import Script from "next/script"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ConvexClientProvider } from "@/components/convex-provider"
@@ -74,11 +73,6 @@ export default function RootLayout({
         <StructuredData />
       </head>
       <body className={`${inter.className} bg-white`} suppressHydrationWarning>
-        <Script
-          src="/script.js"
-          data-website-id="bd7e8714-0165-4646-a110-34611e2abacb"
-          strategy="afterInteractive"
-        />
         <ConvexClientProvider>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
             <div className="min-h-screen bg-white flex flex-col">

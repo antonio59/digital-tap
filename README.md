@@ -48,10 +48,7 @@ npx wrangler pages secret put CONTACT_TO_EMAIL
 npx wrangler pages secret put ADMIN_PASSWORD
 npx wrangler pages secret put SESSION_SECRET        # recommended: random, unrelated to ADMIN_PASSWORD
 npx wrangler pages secret put TOKEN_ISSUER_SECRET   # required for voting/comments
-npx wrangler pages secret put UMAMI_SCRIPT_SHA256   # required for /script.js
 ```
-
-`UMAMI_SCRIPT_SHA256` is the SHA-256 of the upstream analytics script — compute it once with `curl -s https://umami.antoniosmith.xyz/script.js | shasum -a 256`. `/script.js` refuses to serve unpinned content.
 
 `NEXT_PUBLIC_CONVEX_URL` is needed both at build time (client bundle) and as a Pages env var for the stats Function — set it under **Pages → Settings → Environment variables**. For `wrangler pages dev`, copy values into `.dev.vars` (gitignored).
 

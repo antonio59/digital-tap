@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
+### Changed
+- Remove Umami analytics proxy and script tag (functions/script.js.ts, functions/api/send.ts, UMAMI_SCRIPT_SHA256 env)
+- Replace Twitter timeline embed with curated real passenger complaints about tap-in/tap-out ticketing (lib/complaints.ts), including the FOI-sourced £164.7m missed-tap-out figure
+- Remove Umami analytics proxy and script tag (functions/script.js.ts, functions/api/send.ts, UMAMI_SCRIPT_SHA256 env)
+- Replace Twitter timeline embed with curated real passenger complaints about tap-in/tap-out ticketing (lib/complaints.ts), including the FOI-sourced £164.7m missed-tap-out figure
+
+- Move site to digitaltap.antoniosmith.xyz; rename package and Pages project to digital-tap, reword product-style TfL claims to proposal language, update security.txt canonical/contact
+
+
 ### Bug Fixes
 
 - **security**: Remediate audit findings at the backend trust boundary
@@ -56,7 +65,6 @@ All notable changes to this project will be documented in this file.
 
 ### Changes
 
-- **deps-dev**: Bump @types/node from 25.9.1 to 26.5.1 (#106)
 - **deps**: Bump react and @types/react (#104)
 - **deps**: Bump lucide-react from 1.41.0 to 1.44.0 (#109)
 - **deps**: Bump @radix-ui/react-scroll-area from 1.2.10 to 1.2.18 (#108)
@@ -154,7 +162,6 @@ ci: bump actions/checkout from 4 to 6
 
 ### Chores
 
-- Move site to digitaltap.antoniosmith.xyz, rename to digital-tap
 - Adopt cloudflare/security-audit skill
 - **deps**: Regenerate lockfile after rebase
 - Set NEXT_PUBLIC_CONVEX_URL as a Pages env var
@@ -175,8 +182,6 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
-- Update changelog [skip ci]
-- Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
