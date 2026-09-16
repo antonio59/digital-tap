@@ -144,7 +144,7 @@ export default function AdminDashboard() {
 
 🎯 Day ${stats.daysSinceLaunch} of our ongoing campaign to bring modern travel technology to the DLR.
 
-Every voice matters. Join the movement: https://londondigitaltap.xyz
+Every voice matters. Join the movement: https://digitaltap.antoniosmith.xyz
 
 @TfL @MayorofLondon #DLR #London #PublicTransport #Innovation`;
   };

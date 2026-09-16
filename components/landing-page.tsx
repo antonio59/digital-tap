@@ -290,7 +290,7 @@ export default function LandingPage() {
                   <div className="ml-4">
                     <h4 className="text-lg font-semibold text-gray-900 mb-2">Better TfL Analytics</h4>
                     <p className="text-gray-600">
-                      Provides TfL with detailed journey data for route optimisation, capacity planning, and service improvements.
+                      Would give TfL detailed journey data for route optimisation, capacity planning, and service improvements.
                     </p>
                   </div>
                 </div>
@@ -431,8 +431,8 @@ export default function LandingPage() {
                   Seamless TfL Network Integration
                 </p>
                 <p className="mt-4 text-xl text-gray-500">
-                  Our digital tap system integrates seamlessly with existing TfL infrastructure, supporting both Oyster
-                  cards and contactless payments.
+                  The proposed digital tap system would integrate with existing TfL infrastructure, supporting both
+                  Oyster cards and contactless payments.
                 </p>
               </div>
 
@@ -444,10 +444,10 @@ export default function LandingPage() {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-medium text-gray-900">TfL Account Required</h3>
+                    <h3 className="text-lg font-medium text-gray-900">TfL Account</h3>
                     <p className="mt-2 text-base text-gray-500">
-                      Users must have a registered TfL account to access the digital tap system, ensuring security and fare
-                      collection.
+                      Users would need a registered TfL account to access the digital tap system, ensuring security and
+                      fare collection.
                     </p>
                   </div>
                 </div>
@@ -461,8 +461,8 @@ export default function LandingPage() {
                   <div className="ml-4">
                     <h3 className="text-lg font-medium text-gray-900">Oyster & Contactless Support</h3>
                     <p className="mt-2 text-base text-gray-500">
-                      Full compatibility with existing Oyster cards and contactless payment methods for a unified
-                      experience.
+                      Designed for compatibility with existing Oyster cards and contactless payment methods for a
+                      unified experience.
                     </p>
                   </div>
                 </div>

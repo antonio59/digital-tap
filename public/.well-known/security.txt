@@ -1,4 +1,4 @@
-Contact: mailto:contact@dlrdigitaltap.xyz
+Contact: mailto:contact@antoniosmith.xyz
 Expires: 2027-09-13T00:00:00.000Z
 Preferred-Languages: en
-Canonical: https://londondigitaltap.xyz/.well-known/security.txt
+Canonical: https://digitaltap.antoniosmith.xyz/.well-known/security.txt

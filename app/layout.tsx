@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://londondigitaltap.xyz"),
+  metadataBase: new URL("https://digitaltap.antoniosmith.xyz"),
   alternates: {
     canonical: "/",
   },
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     title: "Digital Tap — a citizen proposal for touchless DLR travel",
     description:
       "A concept campaign asking TfL to consider beacon-based tap-in and tap-out on the DLR. Demo only.",
-    url: "https://londondigitaltap.xyz",
+    url: "https://digitaltap.antoniosmith.xyz",
     siteName: "Digital Tap",
     images: [
       {

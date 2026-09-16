@@ -3,6 +3,11 @@
 All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
+### Changed
+
+- Move site to digitaltap.antoniosmith.xyz; rename package and Pages project to digital-tap, reword product-style TfL claims to proposal language, update security.txt canonical/contact
+
+
 ### Bug Fixes
 
 - **security**: Remediate audit findings at the backend trust boundary

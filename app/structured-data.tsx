@@ -3,8 +3,8 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     name: "Digital Tap",
-    description: "Revolutionary contactless travel system for London's DLR network",
-    url: "https://dlrdigitaltap.xyz",
+    description: "Independent concept proposal for beacon-based contactless travel on the DLR. Not affiliated with TfL.",
+    url: "https://digitaltap.antoniosmith.xyz",
     applicationCategory: "TransportationApplication",
     operatingSystem: "Web Browser",
     offers: {
@@ -14,7 +14,7 @@ export default function StructuredData() {
     },
     creator: {
       "@type": "Organization",
-      name: "Digital Tap Team",
+      name: "Antonio Smith",
     },
     keywords: "DLR, digital tap, contactless travel, London transport, TfL, public transport",
     inLanguage: "en-GB",
