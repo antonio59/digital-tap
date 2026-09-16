@@ -10,6 +10,7 @@ import PrototypeBanner from "./prototype-banner"
 import DisclaimerFooter from "./disclaimer-footer"
 import SiteHeader from "./site-header"
 import SocialFeed from "./social-feed"
+import HeroSimulation from "./hero-simulation"
 
 export default function LandingPage() {
   return (
@@ -55,11 +56,10 @@ export default function LandingPage() {
             </div>
           </div>
           
-          {/* Decorative elements */}
+          {/* Concept simulation */}
           <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-1/3">
-            <div className="relative">
-              <div className="absolute inset-0 bg-teal-400 rounded-full opacity-20 blur-3xl"></div>
-              <div className="absolute inset-0 bg-cyan-400 rounded-full opacity-20 blur-3xl animate-pulse"></div>
+            <div className="flex justify-end pr-4">
+              <HeroSimulation />
             </div>
           </div>
         </div>

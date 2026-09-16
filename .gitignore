@@ -151,3 +151,4 @@ temp/
 
 # pnpm local store
 .pnpm-store
+clips/
