@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
+- Unescape &amp; last in RSS title decode (CodeQL #83)
 - Serve generated images as image/png via _headers
 - **security**: Remediate audit findings at the backend trust boundary
 - **security**: Override baseline-browser-mapping and @babel/core to patched versions
@@ -176,6 +177,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
+- Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
