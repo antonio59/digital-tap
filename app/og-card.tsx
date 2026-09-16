@@ -1,4 +1,4 @@
-export const OG_ALT = "Digital Tap — a citizen proposal for touchless DLR travel"
+export const OG_ALT = "Digital Tap: a citizen proposal for touchless DLR travel"
 export const OG_SIZE = { width: 1200, height: 630 }
 
 export function OgCard() {
@@ -61,7 +61,7 @@ export function OgCard() {
             border: "1.5px solid rgba(255,255,255,0.5)",
           }}
         >
-          Concept prototype — not a TfL service
+          Concept prototype · not a TfL service
         </div>
       </div>
     </div>

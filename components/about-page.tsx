@@ -37,21 +37,21 @@ export default function AboutPage() {
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>
                 This campaign began at Poplar DLR station. I was already running late and both of the tap points were out of 
-                order—again—the only option was going to the other platform to try the other touch points there. The train I 
-                needed pulled in. I was on the wrong platform, rushing to get back. The doors closed. The train left—not because 
+                order again. The only option was going to the other platform to try the other touch points there. The train I 
+                needed pulled in. I was on the wrong platform, rushing to get back. The doors closed. The train left. Not because 
                 I was late, but because the system couldn't keep up.
               </p>
               <p>
                 Whilst we're fortunate to have frequent DLR services, I have to catch a connecting train at Tower Hill, and DLR 
-                services to Tower Gateway aren't as frequent as those to Bank—so timing matters. Missing one train doesn't just 
+                services to Tower Gateway aren't as frequent as those to Bank, so timing matters. Missing one train doesn't just 
                 mean waiting a few minutes; it means missing my connection and adding 15-30 minutes to my journey depending on 
                 the time of day.
               </p>
               <p>
-                That's when I realised this wasn't just my problem—it affects thousands of passengers daily. Many stations or 
+                That's when I realised this wasn't just my problem. It affects thousands of passengers daily. Many stations or 
                 platforms only have a single touchpoint per platform, or two maximum. If one of those is out of service, or 
                 during rush hour, you're queuing for what feels like forever. And if there are users arriving and departing at 
-                the same time, it becomes a juggle as you try to let those trying to catch the next train tap in before you—an 
+                the same time, it becomes a juggle as you try to let those trying to catch the next train tap in before you: an 
                 awkward dance of "no, you go first" whilst you wait to leave the station.
               </p>
               <p className="font-semibold text-gray-700">
@@ -60,13 +60,13 @@ export default function AboutPage() {
               <p>
                 I was at Heron Quays DLR the other day. I get that some stations don't have barriers. But at this station, 
                 the validators aren't anywhere near where you'd see them in your eye line, or close to the stairs. I travel a 
-                lot around London and was completely baffled by this station—it's as if they've intentionally hidden the tap 
+                lot around London and was completely baffled by this station. It's as if they've intentionally hidden the tap 
                 points so people don't pay. How many passengers miss them entirely? How much revenue is Transport for London 
                 losing simply because of poor placement?
               </p>
               <p>
                 Then there's the uncertainty. Did my tap register? The readers often lag, giving no immediate feedback. You 
-                tap, wait, see nothing, tap again—and suddenly you've double-charged yourself or, worse, invalidated your 
+                tap, wait, see nothing, tap again, and suddenly you've double-charged yourself or, worse, invalidated your 
                 journey. There's no reassurance, no confirmation sound that works consistently, no clear display. You're left 
                 hoping for the best and dreading the penalty fare.
               </p>
@@ -109,8 +109,8 @@ export default function AboutPage() {
                 <div className="space-y-3 text-gray-600 leading-relaxed">
                   <p>
                     Hi, I'm Antonio Smith, a project manager and web developer based in East London who has been commuting on 
-                    the DLR for several years. My daily journey takes me through some of the busiest stations on the network—Poplar, 
-                    Canary Wharf, Tower Gateway—and I've experienced firsthand the challenges of the current tap system, from broken 
+                    the DLR for several years. My daily journey takes me through some of the busiest stations on the network (Poplar, 
+                    Canary Wharf, Tower Gateway) and I've experienced firsthand the challenges of the current tap system, from broken 
                     validators to platform-hopping queues that make me miss crucial connections.
                   </p>
                   <p>
@@ -119,7 +119,7 @@ export default function AboutPage() {
                     experience, I knew I had to build a demonstration.
                   </p>
                   <p>
-                    This isn't about replacing TfL's infrastructure—it's about enhancing it. Physical tap points would remain 
+                    This isn't about replacing TfL's infrastructure. It's about enhancing it. Physical tap points would remain 
                     fully operational for everyone, whilst giving passengers who choose to opt in a faster, contactless alternative 
                     using their phones.
                   </p>
@@ -291,7 +291,7 @@ export default function AboutPage() {
               <div>
                 <h4 className="text-lg font-semibold text-gray-900 mb-2">What about privacy and data security?</h4>
                 <p className="text-gray-600">
-                  Privacy is a top priority. The proposed system would only track station entry and exit—not your movements 
+                  Privacy is a top priority. The proposed system would only track station entry and exit, not your movements 
                   on trains or between stations. All data would be encrypted and handled according to GDPR regulations. 
                   Users could opt-out anytime and use physical tap points as a backup option.
                 </p>
@@ -319,7 +319,7 @@ export default function AboutPage() {
                 <h4 className="text-lg font-semibold text-gray-900 mb-2">How much would this cost to implement?</h4>
                 <p className="text-gray-600">
                   While we don't have official cost estimates, similar beacon-based systems in other contexts (airports, retail) 
-                  have proven relatively affordable. The infrastructure already exists—it's about adding beacons and software. 
+                  have proven relatively affordable. The infrastructure already exists. It's about adding beacons and software. 
                   Any implementation would need TfL's full feasibility study and cost-benefit analysis.
                 </p>
               </div>

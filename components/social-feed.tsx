@@ -40,7 +40,7 @@ export default function SocialFeed() {
         >
           <p className="text-2xl font-extrabold text-blue-700">{stats.totalRevenue}</p>
           <p className="text-sm text-blue-900 mt-1">
-            charged by TfL in maximum fares for missed tap-outs in {stats.year} alone —{" "}
+            charged by TfL in maximum fares for missed tap-outs in {stats.year} alone:{" "}
             {stats.chargedMaxFare} journeys, most refundable only if you claim within{" "}
             {stats.claimWindowWeeks} weeks.
             <span className="ml-1 inline-flex items-center text-blue-600">

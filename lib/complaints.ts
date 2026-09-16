@@ -28,7 +28,7 @@ export const COMPLAINT_POSTS: ComplaintPost[] = [
   {
     quote:
       "I forgot to tap in my Oyster card and got caught and given a £40 penalty fare. I'm freaking out over this.",
-    context: "Greenwich to Shadwell — unfamiliar with unbarriered stations",
+    context: "Greenwich to Shadwell, unfamiliar with unbarriered stations",
     source: "RailUK Forums",
     url: "https://www.railforums.co.uk/threads/accidentally-fare-dodged-worried.132002/",
   },
@@ -42,7 +42,7 @@ export const COMPLAINT_POSTS: ComplaintPost[] = [
   {
     quote:
       "I came and approached you — but no. 'That's a £25 fine, sir.' As a horde of commuters streamed past us, unchecked.",
-    context: "Proactively asked staff to verify a tap at Canning Town — fined anyway",
+    context: "Proactively asked staff to verify a tap at Canning Town, fined anyway",
     source: "complaintletter.org.uk",
     url: "https://complaintletter.org.uk/1809-2/",
   },

@@ -657,7 +657,7 @@ export default function LandingPage() {
                 </p>
                 <p className="text-gray-600">
                   The app runs in the background and only activates when near a TfL station, 
-                  further minimizing battery usage.
+                  further minimising battery usage.
                 </p>
               </CardContent>
             </Card>

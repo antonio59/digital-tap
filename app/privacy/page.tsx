@@ -46,7 +46,7 @@ export default function Privacy() {
             <li><strong>Single-use action tokens:</strong> When you vote or comment, our server issues a one-time token so the
             backend can verify the action came from a real visitor. Tokens are deleted once consumed.</li>
             <li><strong>Hashed IP address:</strong> Your IP is hashed (one-way, not stored in raw form) and used only for
-            rate limiting the contact form and token issuance — never for tracking.</li>
+            rate limiting the contact form and token issuance, never for tracking.</li>
             <li><strong>Usage events:</strong> Anonymous interaction events (such as page views and feature interactions,
             tagged with your anonymous client ID) so we can see which parts of the prototype get used.</li>
             <li><strong>Admin session cookie:</strong> If you are the site administrator, a signed session cookie
@@ -68,7 +68,7 @@ export default function Privacy() {
           <p>
             The Service uses a minimal set of cookies and browser storage, all of which are strictly necessary for the
             site to function. Because we set no analytics, advertising, or other non-essential cookies, UK law (PECR)
-            does not require a consent banner — but we disclose everything we store anyway:
+            does not require a consent banner, but we disclose everything we store anyway:
           </p>
           <ul className="list-disc pl-6 mb-4">
             <li><strong><code>admin_session</code> (cookie):</strong> Administrator login session. HttpOnly, SameSite, expires after
@@ -79,7 +79,7 @@ export default function Privacy() {
           </ul>
           <p>
             You can clear all of these at any time via your browser settings. Clearing them only resets your anonymous
-            identity — no functionality is lost beyond your existing vote.
+            identity. No functionality is lost beyond your existing vote.
           </p>
 
           <h2 className="text-2xl font-bold mt-8 mb-4">4. How We Use Your Data</h2>
@@ -138,7 +138,7 @@ export default function Privacy() {
             <li>With service providers (Cloudflare, Convex, Resend) necessary to operate the Service</li>
             <li>If required by law or legal process</li>
             <li>To protect rights, property, or safety of users or others</li>
-            <li>Aggregated, anonymized data for research or demonstration purposes</li>
+            <li>Aggregated, anonymised data for research or demonstration purposes</li>
           </ul>
 
           <h2 className="text-2xl font-bold mt-8 mb-4">7. Your Rights</h2>
@@ -154,7 +154,7 @@ export default function Privacy() {
           </ul>
           <p>
             To exercise these rights, please contact us via the <a href="/contact" className="text-blue-600 hover:underline">contact form</a>.
-            Erasure requests are actioned against your anonymous client ID — include the <code>ldt_user_id</code> value from
+            Erasure requests are actioned against your anonymous client ID, so include the <code>ldt_user_id</code> value from
             your browser's local storage if you want your votes, comments, images, and usage events removed.
           </p>
 

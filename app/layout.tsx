@@ -11,7 +11,7 @@ import SiteFooter from "@/components/site-footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Digital Tap — a citizen proposal for touchless DLR travel",
+  title: "Digital Tap: a citizen proposal for touchless DLR travel",
   description:
     "A concept campaign asking TfL to consider beacon-based tap-in and tap-out on the DLR. Demo only. Not an official TfL service.",
   keywords: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Digital Tap — a citizen proposal for touchless DLR travel",
+    title: "Digital Tap: a citizen proposal for touchless DLR travel",
     description:
       "A concept campaign asking TfL to consider beacon-based tap-in and tap-out on the DLR. Demo only.",
     url: "https://digitaltap.antoniosmith.xyz",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digital Tap — a citizen proposal for touchless DLR travel",
+    title: "Digital Tap: a citizen proposal for touchless DLR travel",
     description:
       "A concept campaign asking TfL to consider beacon-based tap-in and tap-out on the DLR.",
   },
