@@ -99,11 +99,13 @@ async function fetchReddit() {
 function decodeXml(s) {
   return s
     .replace(/<!\[CDATA\[|\]\]>/g, "")
-    .replace(/&amp;/g, "&")
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">")
     .replace(/&quot;/g, '"')
     .replace(/&#39;|&apos;/g, "'")
+    // &amp; must be unescaped last, or input like "&amp;lt;" would
+    // double-unescape to "<" (CodeQL: double unescaping)
+    .replace(/&amp;/g, "&")
 }
 
 async function fetchNews() {
