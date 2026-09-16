@@ -190,6 +190,7 @@ ci: bump actions/checkout from 4 to 6
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
+- Update changelog [skip ci]
 - Update changelog
 - Update changelog [skip ci]
 - Update changelog [skip ci]
@@ -249,6 +250,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Features
 
+- Brand asset renderer for social profiles
 - Proper logo lockup in nav
 - Animated hero simulation + video capture script
 - Weekly tweet-brief workflow for campaign engagement
