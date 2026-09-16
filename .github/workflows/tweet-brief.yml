@@ -1,0 +1,46 @@
+name: Weekly tweet brief
+
+on:
+  schedule:
+    - cron: "0 9 * * 1" # Mondays 09:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+
+      - name: Generate tweet brief
+        env:
+          # Optional: create a free "script" app at https://www.reddit.com/prefs/apps
+          # and add these as repo secrets to unlock Reddit as a source.
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+        run: node scripts/tweet-brief.mjs
+
+      - name: Commit brief
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/tweet-briefs/
+          git diff --cached --quiet || git commit -m "docs: weekly tweet brief [skip ci]"
+          git push
+
+      - name: Open approval issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRIEF=$(ls docs/tweet-briefs/*.md | tail -1)
+          gh issue create \
+            --title "Tweet draft — $(basename "$BRIEF" .md)" \
+            --label "campaign" \
+            --body-file "$BRIEF" || true
