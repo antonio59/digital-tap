@@ -188,6 +188,7 @@ ci: bump actions/checkout from 4 to 6
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
+- Update changelog [skip ci]
 - Update changelog
 - Update changelog [skip ci]
 - Update changelog [skip ci]
@@ -247,6 +248,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Features
 
+- Animated hero simulation + video capture script
 - Weekly tweet-brief workflow for campaign engagement
 - Real OG/twitter share images and contactless favicon
 - Configurable contact-form sender via CONTACT_FROM_EMAIL
