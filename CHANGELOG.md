@@ -189,6 +189,7 @@ ci: bump actions/checkout from 4 to 6
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
+- Update changelog [skip ci]
 - Update changelog
 - Update changelog [skip ci]
 - Update changelog [skip ci]
@@ -248,6 +249,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Features
 
+- Proper logo lockup in nav
 - Animated hero simulation + video capture script
 - Weekly tweet-brief workflow for campaign engagement
 - Real OG/twitter share images and contactless favicon
