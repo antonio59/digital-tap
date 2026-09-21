@@ -34,6 +34,7 @@ All notable changes to this project will be documented in this file.
 
 ### CI/CD
 
+- Bump google/osv-scanner-action from 2.5.1 to 2.6.0 (#110)
 - Bump actions/checkout from 6 to 7
 - Bump actions/setup-node from 4 to 7
 - Bump google/osv-scanner-action from 2.5.0 to 2.5.1 (#85)
@@ -177,6 +178,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
+- Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
