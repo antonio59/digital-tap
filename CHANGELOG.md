@@ -59,6 +59,8 @@ All notable changes to this project will be documented in this file.
 
 ### Changes
 
+- **deps**: Bump next from 16.3.3 to 16.3.5 (#113)
+- **deps-dev**: Bump wrangler from 4.131.0 to 4.134.0 (#112)
 - **deps**: Bump @radix-ui/react-toast from 1.2.15 to 1.2.23 (#111)
 - **deps-dev**: Bump @types/node from 25.9.1 to 26.5.1 (#106)
 - **deps**: Bump react and @types/react (#104)
@@ -179,6 +181,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
+- Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
