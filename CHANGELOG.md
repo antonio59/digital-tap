@@ -59,6 +59,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changes
 
+- **deps**: Bump @radix-ui/react-toast from 1.2.15 to 1.2.23 (#111)
 - **deps-dev**: Bump @types/node from 25.9.1 to 26.5.1 (#106)
 - **deps**: Bump react and @types/react (#104)
 - **deps**: Bump lucide-react from 1.41.0 to 1.44.0 (#109)
@@ -178,6 +179,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
+- Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
