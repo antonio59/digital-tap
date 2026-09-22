@@ -153,7 +153,7 @@ export default function AboutPage() {
                   <p className="text-sm text-green-600 font-medium mb-2">✅ Completed - June 2024</p>
                   <p className="text-gray-600">
                     Designed and developed a working prototype demonstrating how digital tap technology could function. 
-                    Created comprehensive user interface with all 41 DLR stations integrated.
+                    Created comprehensive user interface with all 45 DLR stations integrated.
                   </p>
                 </div>
               </div>
