@@ -60,6 +60,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changes
 
+- **deps**: Bump react-dom and @types/react-dom (#119)
 - **deps**: Bump @radix-ui/react-label from 2.1.8 to 2.1.15 (#117)
 - **deps**: Bump tailwind-merge from 3.6.0 to 3.7.0 (#116)
 - **deps**: Bump next from 16.3.3 to 16.3.5 (#113)
@@ -185,6 +186,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
+- Update changelog [skip ci]
 - Add evidence data pack, release notes, readme updates
 - Weekly tweet brief [skip ci]
 - Update changelog [skip ci]
