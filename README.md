@@ -8,6 +8,8 @@ Stack: **Next.js** (static export), **Convex**, **Tailwind**, **Resend** (REST A
 
 - Campaign landing page, vote, and comments
 - DLR journey and pink-reader interchange demo
+- Live TfL FOI statistics on the landing page — a weekly Convex cron (`convex/foi.ts`) re-parses the incomplete-journey FOI disclosures (FOI-4311-2324 annual + FOI-4349-2324 contactless device split) with hardcoded fallbacks
+- Evidence data pack for the TfL submission: `docs/data-pack.md`
 - Contact form (Resend)
 - Admin stats (password-protected, server-side)
 
@@ -56,6 +58,10 @@ Two env vars also live on the **Convex deployment** (set via `npx convex env set
 
 - `TOKEN_ISSUER_SECRET` — must match the Pages secret; gates token issuance
 - `ADMIN_PASSWORD` — enables admin-gated Convex mutations (comment deletion, GDPR erasure via `lifecycle:eraseUser`)
+
+## Agent tooling
+
+Agent skills live in `.agents/skills/` and are symlinked into `.devin/skills/` and `.claude/skills/` (`security-audit`, `typesafe-ai`). Managed via `npx skills`; see `skills-lock.json`.
 
 ## License
 
