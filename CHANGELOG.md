@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
+- Correct DLR station count to 45 on about page
 - Unescape &amp; last in RSS title decode (CodeQL #83)
 - Serve generated images as image/png via _headers
 - **security**: Remediate audit findings at the backend trust boundary
@@ -162,6 +163,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Chores
 
+- Install typesafe-ai agent skill
 - Move site to digitaltap.antoniosmith.xyz, rename to digital-tap
 - Adopt cloudflare/security-audit skill
 - **deps**: Regenerate lockfile after rebase
@@ -183,6 +185,9 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
+- Add evidence data pack, release notes, readme updates
+- Weekly tweet brief [skip ci]
+- Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
@@ -263,6 +268,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Features
 
+- Cite FOI-4349-2324 contactless figures alongside annual stats
 - Brand asset renderer for social profiles
 - Proper logo lockup in nav
 - Animated hero simulation + video capture script
