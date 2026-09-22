@@ -64,6 +64,14 @@ export default defineSchema({
     claimWindowWeeks: v.number(),
     sourceUrl: v.string(),
     fetchedAt: v.number(),
+    // FOI-4349-2324: bank-card + mobile incomplete journeys, 25 Jan 2023 to
+    // 28 Feb 2024. Optional so pre-existing rows stay valid.
+    devicePeriod: v.optional(v.string()),
+    deviceIncompleteJourneys: v.optional(v.string()),
+    deviceTotalCharged: v.optional(v.string()),
+    deviceMobileCharged: v.optional(v.string()),
+    deviceAverageCharge: v.optional(v.string()),
+    deviceSourceUrl: v.optional(v.string()),
   })
     .index("by_key", ["key"]),
 })

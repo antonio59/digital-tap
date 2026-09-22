@@ -202,10 +202,11 @@ function buildBrief(posts, date) {
     )
   }
   lines.push(
-    "## Standing stats (TfL FOI-4311-2324, 2023)",
+    "## Standing stats (TfL FOI, 2023–24)",
     "",
-    "- £164.7m collected in maximum fares for missed tap-outs",
+    "- £164.7m collected in maximum fares for missed tap-outs in 2023 (FOI-4311-2324)",
     "- 22.2m journeys charged the maximum fare; 30.9m incomplete journeys total",
+    "- £231.5m charged for 36.3m incomplete contactless journeys in the 13 months to Feb 2024 — £134m on phones alone (FOI-4349-2324)",
     "- Refunds must be claimed within 8 weeks",
     "",
     "## Prompt for the drafting agent",
@@ -215,7 +216,7 @@ function buildBrief(posts, date) {
     "touchless tap-in/tap-out on the DLR. Tone: factual, on the passenger's side,",
     "never corporate. Rules:",
     "- Open with a question hook grounded in one of the evidence posts above",
-    "- Cite at most one statistic (the £164.7m or 22.2m figure) — no stat dumps",
+    "- Cite at most one statistic (the £164.7m, 22.2m or £231.5m figure) — no stat dumps",
     "- Never claim affiliation with or endorsement by TfL",
     "- End with the call to action: vote on the proposal at",
     `  ${SITE_URL}/vote`,

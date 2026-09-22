@@ -10,18 +10,27 @@ import { ExternalLink, MessageSquare } from "lucide-react"
 // and press coverage. Replaces the old Twitter timeline: the point of this
 // block is showing that the problem is real, in passengers' own words.
 // The headline figures come from a weekly Convex cron that re-parses TfL's
-// FOI disclosure page; the constants below are the fallback until the first
+// FOI disclosure pages; the constants below are the fallback until the first
 // successful refresh lands.
+const DEVICE_FOI_URL =
+  "https://tfl.gov.uk/corporate/transparency/freedom-of-information/foi-request-detail?referenceId=FOI-4349-2324"
 const FALLBACK = {
   totalRevenue: "£164.7 million",
   chargedMaxFare: "22.2 million",
   claimWindowWeeks: 8,
   year: 2023,
+  // FOI-4349-2324: contactless-only journeys, 25 Jan 2023 – 28 Feb 2024.
+  devicePeriod: "25 January 2023 to 28 February 2024",
+  deviceIncompleteJourneys: "36.3 million",
+  deviceTotalCharged: "£231.5 million",
+  deviceMobileCharged: "£134.0 million",
+  deviceAverageCharge: "£6.39",
+  deviceSourceUrl: DEVICE_FOI_URL,
 }
 
 export default function SocialFeed() {
   const foi = useQuery(api.foi.latest)
-  const stats = foi ?? FALLBACK
+  const stats = { ...FALLBACK, ...(foi ?? {}) }
 
   return (
     <Card className="h-full">
@@ -48,6 +57,25 @@ export default function SocialFeed() {
             </span>
           </p>
         </a>
+
+        {stats.deviceTotalCharged && (
+          <a
+            href={stats.deviceSourceUrl ?? DEVICE_FOI_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block rounded-lg bg-indigo-50 p-4 mb-5 hover:bg-indigo-100 transition-colors"
+          >
+            <p className="text-xl font-extrabold text-indigo-700">{stats.deviceTotalCharged}</p>
+            <p className="text-sm text-indigo-900 mt-1">
+              charged for {stats.deviceIncompleteJourneys} incomplete journeys on bank cards and
+              phones alone ({stats.devicePeriod}) — {stats.deviceMobileCharged} of it on phones, at
+              an average {stats.deviceAverageCharge} per journey.
+              <span className="ml-1 inline-flex items-center text-indigo-600">
+                Source <ExternalLink className="h-3 w-3 ml-1" />
+              </span>
+            </p>
+          </a>
+        )}
 
         <ul className="space-y-4 max-h-[420px] overflow-y-auto pr-1">
           {COMPLAINT_POSTS.map((post) => (
