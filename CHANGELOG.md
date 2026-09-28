@@ -60,6 +60,10 @@ All notable changes to this project will be documented in this file.
 
 ### Changes
 
+- **deps**: Bump convex from 1.45.0 to 1.46.0 (#123)
+- **deps-dev**: Bump wrangler from 4.134.0 to 4.140.0 (#124)
+- **deps-dev**: Bump eslint-config-next from 16.3.3 to 16.3.6 (#122)
+- **deps**: Bump lucide-react from 1.47.0 to 1.48.0 (#121)
 - **deps-dev**: Bump @eslint/eslintrc from 3.3.5 to 3.3.7 (#120)
 - **deps-dev**: Bump @types/node from 26.5.1 to 26.6.2 (#114)
 - **deps**: Bump @radix-ui/react-tabs from 1.1.13 to 1.1.21 (#115)
@@ -190,6 +194,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
+- Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
