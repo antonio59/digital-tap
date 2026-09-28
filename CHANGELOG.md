@@ -60,6 +60,8 @@ All notable changes to this project will be documented in this file.
 
 ### Changes
 
+- **deps-dev**: Bump @eslint/eslintrc from 3.3.5 to 3.3.7 (#120)
+- **deps-dev**: Bump @types/node from 26.5.1 to 26.6.2 (#114)
 - **deps**: Bump @radix-ui/react-tabs from 1.1.13 to 1.1.21 (#115)
 - **deps**: Bump lucide-react from 1.45.0 to 1.47.0 (#118)
 - **deps**: Bump react-dom and @types/react-dom (#119)
@@ -188,6 +190,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
+- Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Add evidence data pack, release notes, readme updates
