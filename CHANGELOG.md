@@ -60,6 +60,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changes
 
+- **deps**: Bump next from 16.3.6 to 16.3.8 (#129)
 - **deps-dev**: Bump wrangler from 4.140.0 to 4.147.0 (#128)
 - **deps-dev**: Bump eslint-config-next from 16.3.6 to 16.3.8 (#126)
 - **deps**: Bump lucide-react from 1.48.0 to 1.49.0 (#130)
@@ -199,6 +200,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
+- Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Weekly tweet brief [skip ci]
