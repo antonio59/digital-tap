@@ -60,6 +60,8 @@ All notable changes to this project will be documented in this file.
 
 ### Changes
 
+- **deps-dev**: Bump @types/node from 26.6.2 to 26.6.4 (#127)
+- **deps**: Bump next from 16.3.5 to 16.3.6 (#125)
 - **deps**: Bump convex from 1.45.0 to 1.46.0 (#123)
 - **deps-dev**: Bump wrangler from 4.134.0 to 4.140.0 (#124)
 - **deps-dev**: Bump eslint-config-next from 16.3.3 to 16.3.6 (#122)
@@ -194,6 +196,8 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
+- Weekly tweet brief [skip ci]
+- Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
