@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
+- **security**: Bump brace-expansion to 1.1.21 and 5.0.12 (#131)
 - Correct DLR station count to 45 on about page
 - Unescape &amp; last in RSS title decode (CodeQL #83)
 - Serve generated images as image/png via _headers
@@ -200,6 +201,8 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
+- Weekly tweet brief [skip ci]
+- Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
