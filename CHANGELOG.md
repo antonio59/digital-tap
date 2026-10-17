@@ -61,6 +61,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changes
 
+- **deps**: Bump @radix-ui/react-slot from 1.3.3 to 1.5.0 (#139)
 - **deps**: Bump @radix-ui/react-toast from 1.2.23 to 1.2.24 (#138)
 - **deps-dev**: Bump playwright from 1.63.0 to 1.64.0 (#134)
 - **deps**: Bump lucide-react from 1.49.0 to 1.54.0 (#133)
@@ -205,6 +206,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
+- Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
