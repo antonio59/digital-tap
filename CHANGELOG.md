@@ -61,6 +61,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changes
 
+- **deps**: Bump next from 16.3.8 to 16.4.1 (#135)
 - **deps-dev**: Bump wrangler from 4.147.0 to 4.151.0 (#137)
 - **deps-dev**: Bump eslint-config-next from 16.3.8 to 16.4.1 (#140)
 - **deps**: Bump @radix-ui/react-slot from 1.3.3 to 1.5.0 (#139)
@@ -208,6 +209,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
+- Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
