@@ -63,6 +63,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changes
 
+- **deps-dev**: Bump @types/node from 26.6.4 to 26.6.5 (#149)
 - **deps-dev**: Bump playwright from 1.64.0 to 1.64.1 (#146)
 - **deps**: Bump @radix-ui/react-tabs from 1.1.21 to 1.2.1 (#151)
 - **deps**: Bump convex from 1.46.0 to 1.47.0 (#148)
@@ -218,6 +219,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
+- Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
