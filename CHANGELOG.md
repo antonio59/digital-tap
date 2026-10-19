@@ -63,6 +63,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changes
 
+- **deps**: Bump @radix-ui/react-toast from 1.2.24 to 1.3.1 (#150)
 - **deps-dev**: Bump @types/node from 26.6.4 to 26.6.5 (#149)
 - **deps-dev**: Bump playwright from 1.64.0 to 1.64.1 (#146)
 - **deps**: Bump @radix-ui/react-tabs from 1.1.21 to 1.2.1 (#151)
@@ -219,6 +220,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
+- Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
