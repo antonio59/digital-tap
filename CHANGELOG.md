@@ -63,6 +63,9 @@ All notable changes to this project will be documented in this file.
 
 ### Changes
 
+- **deps-dev**: Bump eslint-config-next from 16.4.1 to 16.4.2 (#145)
+- **deps**: Bump next from 16.4.1 to 16.4.2 (#144)
+- **deps**: Bump @radix-ui/react-label from 2.1.16 to 2.1.17 (#143)
 - **deps**: Bump @radix-ui/react-select from 2.3.7 to 2.4.1 (#136)
 - **deps**: Bump next from 16.3.8 to 16.4.1 (#135)
 - **deps-dev**: Bump wrangler from 4.147.0 to 4.151.0 (#137)
@@ -212,6 +215,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
+- Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
