@@ -63,6 +63,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changes
 
+- **deps**: Bump @radix-ui/react-tabs from 1.1.21 to 1.2.1 (#151)
 - **deps**: Bump convex from 1.46.0 to 1.47.0 (#148)
 - **deps-dev**: Bump eslint-config-next from 16.4.1 to 16.4.2 (#145)
 - **deps**: Bump next from 16.4.1 to 16.4.2 (#144)
@@ -216,6 +217,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
+- Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
