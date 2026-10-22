@@ -4,18 +4,24 @@ import { v } from "convex/values"
 export default defineSchema({
   votes: defineTable({
     userId: v.string(),
+    // Anonymous browser id (ldt_user_id), used for erasure. Optional so rows
+    // written before this field existed still validate; new writes always set it.
+    clientId: v.optional(v.string()),
     feedback: v.optional(v.string()),
   })
-    .index("by_user", ["userId"]),
+    .index("by_user", ["userId"])
+    .index("by_client", ["clientId"]),
 
   comments: defineTable({
     userId: v.string(),
+    clientId: v.optional(v.string()),
     name: v.string(),
     comment: v.string(),
     imageUrl: v.optional(v.string()),
     imageStorageId: v.optional(v.id("_storage")),
   })
-    .index("by_user", ["userId"]),
+    .index("by_user", ["userId"])
+    .index("by_client", ["clientId"]),
 
   analytics: defineTable({
     eventType: v.string(),
@@ -35,11 +41,13 @@ export default defineSchema({
   }),
 
   // Fixed-window rate-limit counters. Keys are namespaced SHA-256 hashes
-  // (e.g. "tok:<sha256(ip)>", "contact:<sha256(ip)>").
+  // (e.g. "tok:<sha256(ip)>", "contact:<sha256(ip)>"). windowMs is fixed when
+  // the window opens so a later caller cannot shrink it and reset the counter.
   rateLimits: defineTable({
     key: v.string(),
     windowStart: v.number(),
     count: v.number(),
+    windowMs: v.optional(v.number()),
   })
     .index("by_key", ["key"]),
 
@@ -49,8 +57,21 @@ export default defineSchema({
   pendingUploads: defineTable({
     tokenId: v.id("voterTokens"),
     storageId: v.optional(v.id("_storage")),
+    // Same anonymous browser id as the comment, so erasure can delete a blob
+    // that was uploaded but not yet attached.
+    clientId: v.optional(v.string()),
   })
-    .index("by_token", ["tokenId"]),
+    .index("by_token", ["tokenId"])
+    .index("by_client", ["clientId"]),
+
+  // Server-side admin sessions. The cookie carries a signed jti; logout sets
+  // revoked so a copied cookie stops working before expiresAt.
+  adminSessions: defineTable({
+    jti: v.string(),
+    expiresAt: v.number(),
+    revoked: v.boolean(),
+  })
+    .index("by_jti", ["jti"]),
 
   // Latest figures pulled from TfL's FOI disclosure page by the weekly cron.
   // One row per dataset key; the site renders these with a hardcoded fallback.

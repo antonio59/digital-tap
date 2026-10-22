@@ -1,14 +1,16 @@
 import type { Env } from "./env"
+import { convexMutation } from "./convex"
 
-const SESSION_PAYLOAD = "dlr-digital-tap:admin-session:v1"
+const SESSION_PAYLOAD = "dlr-digital-tap:admin-session:v2"
 const SESSION_TTL_MS = 12 * 60 * 60 * 1000
+export const SESSION_MAX_AGE_SECONDS = SESSION_TTL_MS / 1000
 const encoder = new TextEncoder()
 
-// SESSION_SECRET is a dedicated high-entropy HMAC key so a captured token is
-// not an offline oracle for the interactive password. ADMIN_PASSWORD is the
-// fallback for deployments that haven't set it yet.
-function secret(env: Env): string | undefined {
-  return env.SESSION_SECRET ?? env.ADMIN_PASSWORD
+// SESSION_SECRET is a dedicated high-entropy HMAC key. It is required.
+// ADMIN_PASSWORD is not a fallback, so a captured cookie is not an offline
+// oracle for the interactive password.
+function sessionSecret(env: Env): string | undefined {
+  return env.SESSION_SECRET || undefined
 }
 
 async function hmacHex(key: string, message: string): Promise<string> {
@@ -43,24 +45,100 @@ export async function verifyAdminPassword(env: Env, candidate: string | undefine
   return safeCompare(a, b)
 }
 
-/** Session token: "<expiryMs>.<HMAC(payload:expiry)>" — expiry is enforced
- *  server-side in verifySessionToken, so a token cannot outlive its window. */
-export async function createSessionToken(env: Env): Promise<string> {
-  const exp = (Date.now() + SESSION_TTL_MS).toString()
-  const sig = await hmacHex(secret(env)!, `${SESSION_PAYLOAD}:${exp}`)
-  return `${exp}.${sig}`
+export type SessionClaims = { expMs: number; jti: string }
+
+function randomJti(): string {
+  const bytes = new Uint8Array(16)
+  crypto.getRandomValues(bytes)
+  return [...bytes].map((b) => b.toString(16).padStart(2, "0")).join("")
 }
 
-export async function verifySessionToken(env: Env, token: string | undefined): Promise<boolean> {
-  const s = secret(env)
-  if (!s || !token) return false
-  const dot = token.indexOf(".")
-  if (dot <= 0) return false
-  const exp = token.slice(0, dot)
-  const sig = token.slice(dot + 1)
+/** Signed cookie payload: "<expiryMs>.<jti>.<HMAC>".
+ *  Does not check server-side revocation — authorization must use
+ *  verifySessionToken, which also requires the jti to still be active. */
+export async function readSessionToken(
+  env: Env,
+  token: string | undefined,
+): Promise<SessionClaims | null> {
+  const secret = sessionSecret(env)
+  if (!secret || !token) return null
+  const parts = token.split(".")
+  if (parts.length !== 3) return null
+  const [exp, jti, sig] = parts
+  if (!/^\d{10,16}$/.test(exp) || !/^[0-9a-f]{32}$/.test(jti) || !/^[0-9a-f]{64}$/.test(sig)) {
+    return null
+  }
   const expMs = Number(exp)
-  if (!Number.isFinite(expMs) || expMs < Date.now()) return false
-  return safeCompare(sig, await hmacHex(s, `${SESSION_PAYLOAD}:${exp}`))
+  if (!Number.isSafeInteger(expMs)) return null
+  const expected = await hmacHex(secret, `${SESSION_PAYLOAD}:${exp}:${jti}`)
+  if (!safeCompare(sig, expected)) return null
+  return { expMs, jti }
+}
+
+export async function createSessionToken(
+  env: Env,
+): Promise<{ token: string; jti: string; expiresAt: number }> {
+  const secret = sessionSecret(env)
+  if (!secret) {
+    throw new Error("SESSION_SECRET is not configured")
+  }
+  const expiresAt = Date.now() + SESSION_TTL_MS
+  const exp = expiresAt.toString()
+  const jti = randomJti()
+  const sig = await hmacHex(secret, `${SESSION_PAYLOAD}:${exp}:${jti}`)
+  return { token: `${exp}.${jti}.${sig}`, jti, expiresAt }
+}
+
+async function sessionIsActive(env: Env, jti: string): Promise<boolean> {
+  if (!env.NEXT_PUBLIC_CONVEX_URL || !env.ADMIN_PASSWORD) return false
+  try {
+    const result = await convexMutation<{ active: boolean }>(
+      env.NEXT_PUBLIC_CONVEX_URL,
+      "adminSessions:check",
+      { jti, adminToken: env.ADMIN_PASSWORD },
+    )
+    return result.active === true
+  } catch {
+    console.error("Admin session check failed")
+    return false
+  }
+}
+
+/** Authorization check for admin endpoints: signature, expiry, and a live jti. */
+export async function verifySessionToken(env: Env, token: string | undefined): Promise<boolean> {
+  const claims = await readSessionToken(env, token)
+  if (!claims || claims.expMs < Date.now()) return false
+  return sessionIsActive(env, claims.jti)
+}
+
+export async function registerAdminSession(env: Env, jti: string, expiresAt: number): Promise<boolean> {
+  if (!env.NEXT_PUBLIC_CONVEX_URL || !env.ADMIN_PASSWORD) return false
+  try {
+    const result = await convexMutation<{ success: boolean }>(
+      env.NEXT_PUBLIC_CONVEX_URL,
+      "adminSessions:register",
+      { jti, expiresAt, adminToken: env.ADMIN_PASSWORD },
+    )
+    return result.success === true
+  } catch {
+    console.error("Admin session registration failed")
+    return false
+  }
+}
+
+export async function revokeAdminSession(env: Env, jti: string): Promise<boolean> {
+  if (!env.NEXT_PUBLIC_CONVEX_URL || !env.ADMIN_PASSWORD) return false
+  try {
+    const result = await convexMutation<{ success: boolean }>(
+      env.NEXT_PUBLIC_CONVEX_URL,
+      "adminSessions:revoke",
+      { jti, adminToken: env.ADMIN_PASSWORD },
+    )
+    return result.success === true
+  } catch {
+    console.error("Admin session revocation failed")
+    return false
+  }
 }
 
 export function getCookie(request: Request, name: string): string | undefined {

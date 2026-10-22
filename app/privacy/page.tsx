@@ -17,7 +17,7 @@ export default function Privacy() {
           </div>
 
           <p className="text-lg text-gray-600 mb-8">
-            <strong>Last Updated:</strong> September 16, 2026
+            <strong>Last Updated:</strong> October 22, 2026
           </p>
 
           <h2 className="text-2xl font-bold mt-8 mb-4">1. Introduction</h2>
@@ -50,7 +50,8 @@ export default function Privacy() {
             <li><strong>Usage events:</strong> Anonymous interaction events (such as page views and feature interactions,
             tagged with your anonymous client ID) so we can see which parts of the prototype get used.</li>
             <li><strong>Admin session cookie:</strong> If you are the site administrator, a signed session cookie
-            (<code>admin_session</code>) keeps you logged in for up to 12 hours. It is HttpOnly and is never set for
+            (<code>admin_session</code>) keeps you logged in for up to 12 hours. Logging out revokes that session
+            on the server, so a copied cookie stops working immediately. It is HttpOnly and is never set for
             ordinary visitors.</li>
           </ul>
           <p>We do NOT collect:</p>
@@ -72,7 +73,7 @@ export default function Privacy() {
           </p>
           <ul className="list-disc pl-6 mb-4">
             <li><strong><code>admin_session</code> (cookie):</strong> Administrator login session. HttpOnly, SameSite, expires after
-            12 hours. Not set for regular visitors.</li>
+            12 hours or immediately when you log out. Not set for regular visitors.</li>
             <li><strong><code>ldt_voter_token</code> (local storage):</strong> Holds your current single-use action token so a vote
             survives a page reload. Deleted once the token is consumed.</li>
             <li><strong><code>ldt_user_id</code> (local storage):</strong> Your anonymous client identifier, described above.</li>
@@ -155,7 +156,8 @@ export default function Privacy() {
           <p>
             To exercise these rights, please contact us via the <a href="/contact" className="text-blue-600 hover:underline">contact form</a>.
             Erasure requests are actioned against your anonymous client ID, so include the <code>ldt_user_id</code> value from
-            your browser's local storage if you want your votes, comments, images, and usage events removed.
+            your browser's local storage. We delete votes, comments, uploaded images (including images not yet
+            attached to a comment), and usage events stored against that ID.
           </p>
 
           <h2 className="text-2xl font-bold mt-8 mb-4">8. Children's Privacy</h2>

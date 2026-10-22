@@ -1,5 +1,6 @@
 import { v } from "convex/values"
 import { mutation, query } from "./_generated/server"
+import { isClientId } from "./clientId"
 
 const MAX_IMAGE_BYTES = 5 * 1024 * 1024
 const MAX_PENDING_UPLOADS_PER_TOKEN = 3
@@ -7,11 +8,15 @@ const MAX_PENDING_UPLOADS_PER_TOKEN = 3
 export const submit = mutation({
   args: {
     tokenId: v.id("voterTokens"),
+    clientId: v.string(),
     name: v.string(),
     comment: v.string(),
     imageStorageId: v.optional(v.id("_storage")),
   },
   handler: async (ctx, args) => {
+    if (!isClientId(args.clientId)) {
+      return { success: false, error: "Invalid client id" }
+    }
     if (args.name.trim().length < 1 || args.name.length > 80) {
       return { success: false, error: "Name must be 1-80 characters" }
     }
@@ -53,6 +58,7 @@ export const submit = mutation({
 
     await ctx.db.insert("comments", {
       userId: String(args.tokenId),
+      clientId: args.clientId,
       name: args.name,
       comment: args.comment,
       imageUrl,
@@ -93,8 +99,12 @@ export const list = query({
 export const generateUploadUrl = mutation({
   args: {
     tokenId: v.id("voterTokens"),
+    clientId: v.string(),
   },
   handler: async (ctx, args) => {
+    if (!isClientId(args.clientId)) {
+      throw new Error("Invalid client id")
+    }
     const token = await ctx.db.get(args.tokenId)
     if (!token || token.used) {
       throw new Error("Invalid or already used token")
@@ -109,7 +119,10 @@ export const generateUploadUrl = mutation({
     }
 
     const uploadUrl = await ctx.storage.generateUploadUrl()
-    const pendingId = await ctx.db.insert("pendingUploads", { tokenId: args.tokenId })
+    const pendingId = await ctx.db.insert("pendingUploads", {
+      tokenId: args.tokenId,
+      clientId: args.clientId,
+    })
     return { uploadUrl, pendingId }
   },
 })

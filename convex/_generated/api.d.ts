@@ -8,6 +8,7 @@
  * @module
  */
 
+import type * as adminSessions from "../adminSessions.js";
 import type * as analytics from "../analytics.js";
 import type * as comments from "../comments.js";
 import type * as crons from "../crons.js";
@@ -24,6 +25,7 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  adminSessions: typeof adminSessions;
   analytics: typeof analytics;
   comments: typeof comments;
   crons: typeof crons;

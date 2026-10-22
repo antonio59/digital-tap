@@ -51,7 +51,24 @@ export default function AdminDashboard() {
   }, []);
 
   const handleLogout = async () => {
-    await fetch("/api/admin/logout", { method: "POST", credentials: "include" });
+    try {
+      const response = await fetch("/api/admin/logout", { method: "POST", credentials: "include" });
+      if (!response.ok) {
+        toast({
+          title: "Error",
+          description: "Could not revoke session. Please try again.",
+          variant: "destructive",
+        });
+        return;
+      }
+    } catch {
+      toast({
+        title: "Error",
+        description: "Could not revoke session. Please try again.",
+        variant: "destructive",
+      });
+      return;
+    }
     setIsAuthenticated(false);
     setStats(null);
     setPassword("");
@@ -90,6 +107,13 @@ export default function AdminDashboard() {
     if (response.ok) {
       setIsAuthenticated(true);
       fetchStats();
+    } else if (response.status === 503) {
+      const body = (await response.json().catch(() => null)) as { error?: string } | null;
+      toast({
+        title: "Admin unavailable",
+        description: body?.error ?? "Could not start session.",
+        variant: "destructive",
+      });
     } else {
       toast({
         title: "Access Denied",

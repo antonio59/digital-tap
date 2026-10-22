@@ -1,12 +1,17 @@
 import { v } from "convex/values"
 import { mutation, query } from "./_generated/server"
+import { isClientId } from "./clientId"
 
 export const submit = mutation({
   args: {
     tokenId: v.id("voterTokens"),
+    clientId: v.string(),
     feedback: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
+    if (!isClientId(args.clientId)) {
+      return { success: false, error: "Invalid client id" }
+    }
     if (args.feedback !== undefined && args.feedback.length > 500) {
       return { success: false, error: "Feedback must be 500 characters or fewer" }
     }
@@ -34,6 +39,7 @@ export const submit = mutation({
 
     await ctx.db.insert("votes", {
       userId,
+      clientId: args.clientId,
       feedback: args.feedback,
     })
 
