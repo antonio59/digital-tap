@@ -3,6 +3,7 @@ import { getCookie, verifySessionToken } from "../_lib/admin"
 import { convexQuery, type ConvexComment } from "../_lib/convex"
 
 async function isAuthorised({ request, env }: FunctionContext): Promise<boolean> {
+  // Signature, expiry, and a server-side jti that logout has not revoked.
   return verifySessionToken(env, getCookie(request, "admin_session"))
 }
 

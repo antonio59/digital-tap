@@ -3,8 +3,8 @@ import { getCookie, verifySessionToken } from "../../_lib/admin"
 import { convexMutation } from "../../_lib/convex"
 
 // Admin moderation endpoint: deletes a comment row and its attached storage
-// blob via the admin-gated comments:remove mutation. Requires a valid
-// admin_session cookie.
+// blob via the admin-gated comments:remove mutation. Requires an admin_session
+// cookie whose signature is valid and whose jti is still active server-side.
 export async function onRequestPost({ request, env }: FunctionContext): Promise<Response> {
   if (!(await verifySessionToken(env, getCookie(request, "admin_session")))) {
     return json({ error: "Unauthorised" }, 401)

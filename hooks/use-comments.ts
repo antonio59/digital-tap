@@ -4,6 +4,7 @@ import { useMutation, useQuery } from "convex/react"
 import { api } from "@/convex/_generated/api"
 import type { Id } from "@/convex/_generated/dataModel"
 import { mintActionToken } from "@/lib/voter-token"
+import { getUserId } from "@/lib/user-id"
 
 export function useComments(limit?: number) {
   const submitComment = useMutation(api.comments.submit)
@@ -12,9 +13,10 @@ export function useComments(limit?: number) {
   const commentsQuery = useQuery(api.comments.list, { limit })
 
   const submit = async (name: string, comment: string, image?: File) => {
+    const clientId = getUserId()
     // Each comment consumes a fresh single-use token (rate-limited per IP).
     const token = (await mintActionToken()) as Id<"voterTokens"> | null
-    if (!token) {
+    if (!clientId || !token) {
       return { success: false, error: "Could not start a session. Please try again later." }
     }
 
@@ -22,7 +24,7 @@ export function useComments(limit?: number) {
       let imageStorageId: any = undefined
 
       if (image) {
-        const mint = await generateUploadUrl({ tokenId: token })
+        const mint = await generateUploadUrl({ tokenId: token, clientId })
         const response = await fetch(mint.uploadUrl, {
           method: "POST",
           headers: { "Content-Type": image.type },
@@ -47,6 +49,7 @@ export function useComments(limit?: number) {
 
       const result = await submitComment({
         tokenId: token,
+        clientId,
         name: name.trim(),
         comment: comment.trim(),
         imageStorageId,

@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
+- **security**: Authenticate rate-limit consumption, erase votes and comments by client id (including image blobs), and revoke admin session ids on logout
 - **security**: Pin sharp to 0.35.5 and source-map-js to 1.2.2 (#141)
 - **security**: Bump brace-expansion to 1.1.21 and 5.0.12 (#131)
 - Correct DLR station count to 45 on about page

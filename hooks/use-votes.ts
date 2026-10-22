@@ -4,6 +4,7 @@ import { useMutation, useQuery } from "convex/react"
 import { api } from "@/convex/_generated/api"
 import type { Id } from "@/convex/_generated/dataModel"
 import { getStoredVoterToken, getVoterToken } from "@/lib/voter-token"
+import { getUserId } from "@/lib/user-id"
 import { useConvexAvailable } from "@/components/convex-provider"
 
 export function useVotes() {
@@ -22,14 +23,16 @@ export function useVotes() {
       return { success: false, error: "Service not available" }
     }
 
+    const clientId = getUserId()
     const token = await getVoterToken()
-    if (!token) {
+    if (!clientId || !token) {
       return { success: false, error: "Could not start a voting session. Please try again later." }
     }
 
     try {
       const result = await submitVote({
         tokenId: token as Id<"voterTokens">,
+        clientId,
         feedback,
       })
       return result

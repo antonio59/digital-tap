@@ -49,13 +49,21 @@ export async function onRequestPost({ request, env }: FunctionContext): Promise<
     // Bound anonymous submissions before the paid send: max 5 per source IP
     // per day, tracked server-side in Convex.
     if (env.NEXT_PUBLIC_CONVEX_URL) {
+      if (!env.TOKEN_ISSUER_SECRET) {
+        return json({ success: false, error: "Service unavailable" }, 503)
+      }
       const ip = request.headers.get("CF-Connecting-IP") ?? "anonymous"
       const key = `contact:${await sha256Hex(ip)}`
       try {
         const rl = await convexMutation<{ allowed: boolean }>(
           env.NEXT_PUBLIC_CONVEX_URL,
           "rateLimit:consume",
-          { key, limit: CONTACT_RATE_LIMIT, windowMs: CONTACT_WINDOW_MS },
+          {
+            key,
+            limit: CONTACT_RATE_LIMIT,
+            windowMs: CONTACT_WINDOW_MS,
+            issuerSecret: env.TOKEN_ISSUER_SECRET,
+          },
         )
         if (!rl.allowed) {
           return json(

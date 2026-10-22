@@ -48,7 +48,7 @@ pnpm deploy
 npx wrangler pages secret put RESEND_API_KEY
 npx wrangler pages secret put CONTACT_TO_EMAIL
 npx wrangler pages secret put ADMIN_PASSWORD
-npx wrangler pages secret put SESSION_SECRET        # recommended: random, unrelated to ADMIN_PASSWORD
+npx wrangler pages secret put SESSION_SECRET        # required: random, unrelated to ADMIN_PASSWORD
 npx wrangler pages secret put TOKEN_ISSUER_SECRET   # required for voting/comments
 ```
 
@@ -56,8 +56,10 @@ npx wrangler pages secret put TOKEN_ISSUER_SECRET   # required for voting/commen
 
 Two env vars also live on the **Convex deployment** (set via `npx convex env set NAME=value` or the dashboard → Settings → Environment Variables):
 
-- `TOKEN_ISSUER_SECRET` — must match the Pages secret; gates token issuance
-- `ADMIN_PASSWORD` — enables admin-gated Convex mutations (comment deletion, GDPR erasure via `lifecycle:eraseUser`)
+- `TOKEN_ISSUER_SECRET` — must match the Pages secret; gates token issuance and `rateLimit:consume` (contact form). `tok:` counters cannot be moved through `consume`
+- `ADMIN_PASSWORD` — enables admin-gated Convex mutations (comment deletion, GDPR erasure via `lifecycle:eraseUser`, admin session register/revoke/check)
+
+`SESSION_SECRET` is required for admin login. Session cookies are HMAC'd with it (never with `ADMIN_PASSWORD`) and carry a `jti` that is stored in Convex and revoked on logout. Admin endpoints reject a cookie whose `jti` is missing or revoked. Deploy the Convex functions before relying on admin login or erasure: votes and comments now store the anonymous `clientId` (`ldt_user_id`) and `lifecycle:eraseUser` deletes rows matching either `userId` or `clientId`, including image blobs.
 
 ## Agent tooling
 

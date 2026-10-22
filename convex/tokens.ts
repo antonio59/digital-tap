@@ -18,7 +18,9 @@ export const issue = mutation({
     if (!secret || args.issuerSecret !== secret) {
       return { success: false, error: "Unauthorised" }
     }
-    if (args.key.length === 0 || args.key.length > 128) {
+    // Only token-issuance counters live here. contact: rows are owned by
+    // rateLimit:consume, which in turn rejects tok: keys.
+    if (args.key.length === 0 || args.key.length > 128 || !args.key.startsWith("tok:")) {
       return { success: false, error: "Invalid request" }
     }
 
@@ -28,17 +30,23 @@ export const issue = mutation({
       .withIndex("by_key", (q) => q.eq("key", args.key))
       .first()
 
+    // The window length is the server constant, never a value stored by
+    // rateLimit:consume (that mutation rejects tok: keys). Persist it so the
+    // row records the window that actually governs the counter.
     if (rl && now - rl.windowStart < TOKEN_WINDOW_MS && rl.count >= TOKEN_LIMIT) {
       return { success: false, error: "Too many requests. Please try again tomorrow." }
     }
-    if (!rl || now - rl.windowStart >= TOKEN_WINDOW_MS) {
-      if (rl) {
-        await ctx.db.patch(rl._id, { windowStart: now, count: 1 })
-      } else {
-        await ctx.db.insert("rateLimits", { key: args.key, windowStart: now, count: 1 })
-      }
+    if (!rl) {
+      await ctx.db.insert("rateLimits", {
+        key: args.key,
+        windowStart: now,
+        count: 1,
+        windowMs: TOKEN_WINDOW_MS,
+      })
+    } else if (now - rl.windowStart >= TOKEN_WINDOW_MS) {
+      await ctx.db.patch(rl._id, { windowStart: now, count: 1, windowMs: TOKEN_WINDOW_MS })
     } else {
-      await ctx.db.patch(rl._id, { count: rl.count + 1 })
+      await ctx.db.patch(rl._id, { count: rl.count + 1, windowMs: TOKEN_WINDOW_MS })
     }
 
     const tokenId = await ctx.db.insert("voterTokens", { used: false })
