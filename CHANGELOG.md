@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
+- **security**: Pin undici to 7.30.1 (#157)
 - **security**: Pin sharp to 0.35.5 and source-map-js to 1.2.2 (#141)
 - **security**: Bump brace-expansion to 1.1.21 and 5.0.12 (#131)
 - Correct DLR station count to 45 on about page
@@ -224,6 +225,8 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
+- Weekly tweet brief [skip ci]
+- Update changelog [skip ci]
 - Update changelog [skip ci]
 - Weekly tweet brief [skip ci]
 - Update changelog [skip ci]
