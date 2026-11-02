@@ -64,6 +64,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changes
 
+- **deps-dev**: Bump wrangler from 4.152.0 to 4.156.0 (#162)
 - **deps-dev**: Bump wrangler from 4.151.0 to 4.152.0 (#156)
 - **deps**: Bump react-dom from 19.3.0 to 19.3.1 (#154)
 - **deps**: Bump lucide-react from 1.54.0 to 1.61.0 (#153)
@@ -225,6 +226,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
+- Update changelog [skip ci]
 - Weekly tweet brief [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
