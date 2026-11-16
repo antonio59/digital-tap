@@ -65,6 +65,8 @@ All notable changes to this project will be documented in this file.
 
 ### Changes
 
+- **deps-dev**: Bump wrangler from 4.158.0 to 4.161.0 (#178)
+- **deps**: Bump lucide-react from 1.69.0 to 1.72.0 (#175)
 - **deps-dev**: Bump @tailwindcss/postcss from 4.3.4 to 4.3.5 (#174)
 - **deps-dev**: Bump eslint-config-next from 16.4.5 to 16.4.6 (#172)
 - **deps-dev**: Bump @tailwindcss/postcss from 4.3.3 to 4.3.4 (#164)
@@ -236,6 +238,7 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
+- Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Weekly tweet brief [skip ci]
