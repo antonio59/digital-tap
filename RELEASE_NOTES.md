@@ -1,5 +1,7 @@
 # Release notes
 
+> **Note:** New release notes go in the `header` of [`cliff.toml`](cliff.toml) and appear automatically at the top of [`CHANGELOG.md`](CHANGELOG.md). The dated developer notes below are kept for historical reference.
+
 ## 2026-09-22 — Expanded FOI evidence, data pack, agent skills
 
 **Landing page stats.** The social feed now shows the newer TfL disclosure

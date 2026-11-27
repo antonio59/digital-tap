@@ -63,6 +63,16 @@ Two env vars also live on the **Convex deployment** (set via `npx convex env set
 
 Agent skills live in `.agents/skills/` and are symlinked into `.devin/skills/` and `.claude/skills/` (`security-audit`, `typesafe-ai`). Managed via `npx skills`; see `skills-lock.json`.
 
+## Versioning and releases
+
+The app version lives solely in `package.json` (`"version"`). `next.config.mjs` exposes it to the client as `NEXT_PUBLIC_APP_VERSION`, and the site footer links it to `CHANGELOG.md`.
+
+To cut a release:
+
+1. Bump `"version"` in `package.json` (minor for new features, patch for fixes).
+2. Add a plain-English `## [x.y.z] - YYYY-MM-DD` entry under `## Release notes` in the `header` of `cliff.toml` (newest first). Do **not** hand-edit `CHANGELOG.md` — the changelog workflow regenerates it from `cliff.toml` on every push to `main`.
+3. Merge to `main`. No manual git tags are needed.
+
 ## License
 
 MIT © Antonio Smith
