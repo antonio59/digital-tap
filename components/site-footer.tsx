@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Heart } from "lucide-react";
+import { APP_VERSION, RELEASE_NOTES_URL } from "@/lib/version";
 
 export default function SiteFooter() {
   return (
@@ -11,6 +12,16 @@ export default function SiteFooter() {
           <span>Made with</span>
           <Heart className="w-4 h-4 text-red-500" />
           <span>by Digital Tap</span>
+          <span aria-hidden="true" className="mx-1 text-gray-600">·</span>
+          <a
+            href={RELEASE_NOTES_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+            title="View release notes"
+          >
+            v{APP_VERSION}
+          </a>
         </div>
         <nav className="flex flex-wrap gap-4 whitespace-nowrap">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
