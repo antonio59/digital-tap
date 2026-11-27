@@ -1,6 +1,32 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to this project are documented in this file.
+
+## Release notes
+
+## [1.0.0] - 2026-11-23
+
+First recorded release of the live Digital Tap citizen campaign site.
+
+### Campaign site and interactive prototype
+- Launched the Digital Tap landing page explaining the touchless DLR tap-in / tap-out concept, common pain points with physical validators, and an animated hero demonstration.
+- Added an interactive click-through prototype (`/prototype`) demonstrating touchless DLR journeys and pink-reader interchanges across all 45 DLR stations.
+- Added an About page sharing the Royal Victoria station story behind the campaign, frequently asked questions, and clear prototype disclaimers.
+
+### Public voting, comments, and contact
+- Added a voting and comment page (`/vote`) so commuters can show their support and share their experiences.
+- Added a contact form (`/contact`) alongside updated privacy and terms pages.
+
+### Live TfL figures and passenger voices
+- Added live incomplete-journey statistics sourced from TfL Freedom of Information disclosures (including both the annual totals and the contactless phone/card split), refreshed automatically each week.
+- Added real passenger accounts highlighting everyday tap-in and tap-out frustrations on the DLR.
+
+### Reliability and security
+- Published at digitaltap.antoniosmith.xyz with social sharing previews and consistent British English copy throughout.
+- Ongoing security hardening and dependency updates.
+
+## Commit log
+
 ## [Unreleased]
 
 ### Bug Fixes
@@ -238,6 +264,10 @@ ci: bump actions/checkout from 4 to 6
 
 ### Documentation
 
+- **release**: Versioning from package.json, release notes and version in the app (#179)
+- Weekly tweet brief [skip ci]
+- Weekly tweet brief [skip ci]
+- Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
 - Update changelog [skip ci]
