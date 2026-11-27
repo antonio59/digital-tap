@@ -1,5 +1,18 @@
 # Release notes
 
+## 2026-11-26 — Security: Next.js 16.4.6
+
+**Dependencies.** Bumped `next` to `^16.4.6` (matching `eslint-config-next`
+`16.4.6`) to resolve seven medium-severity advisories fixed in Next.js 16.4.5+:
+`GHSA-7qx7-33qx-rqx2`, `GHSA-f3mh-rxg3-f5g2`, `GHSA-mfr8-8qww-v76h`,
+`GHSA-pc58-hwjq-p385`, `GHSA-rhh4-g77r-r9qj`, `GHSA-vc7v-qv4w-wrv8`, and
+`GHSA-vvgp-ww4w-46vf` (cache disclosure/poisoning, SVG rejection bypass in
+image optimization, Edge runtime `HttpOnly` cookie exposure via internal
+response headers, and self-hosted response-forwarding injection). Because this
+site is deployed as a static export (`output: "export"` with unoptimized
+images), the cache, Edge runtime, image-optimization, and self-hosted server
+issues were not exploitable here, but the dependency is patched anyway.
+
 ## 2026-09-22 — Expanded FOI evidence, data pack, agent skills
 
 **Landing page stats.** The social feed now shows the newer TfL disclosure
